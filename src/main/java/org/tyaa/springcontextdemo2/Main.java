@@ -3,7 +3,6 @@ package org.tyaa.springcontextdemo2;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import org.tyaa.springcontextdemo2.builder.Unit;
 import org.tyaa.springcontextdemo2.implementations.House;
 import org.tyaa.springcontextdemo2.implementations.WarriorPool;
 
@@ -14,8 +13,9 @@ public class Main {
 		ApplicationContext context =
 				new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		
-		//Unit warriorUnit = (Unit) context.getBean("warrior_unit");
-		//Unit peasantUnit = (Unit) context.getBean("peasant_unit");
+//		Unit warriorUnit = (Unit) context.getBean("warrior_unit");
+//		Unit peasantUnit = (Unit) context.getBean("peasant_unit");
+//		warriorUnit.show();
 		
 		//warriorUnit.show();
 		//warriorUnit.testActions();
@@ -32,33 +32,38 @@ public class Main {
 		
 		
 		/* Method injection */
-		
-		/* House house = (House) context.getBean("house");
-		//Unit warriorUnit = house.createUnit();
-		Unit peasantUnit = house.createUnit();
-		Unit peasantUnit2 = house.createUnit();
-		System.out.println(peasantUnit);
-		System.out.println(peasantUnit2);
-		peasantUnit.testActions();
-		peasantUnit2.testActions(); */
+//
+//		 House house = (House) context.getBean("house");
+//		Unit warriorUnit = house.createUnit();
+//		Unit peasantUnit = house.createUnit();
+//		Unit peasantUnit2 = house.createUnit();
+//		System.out.println(peasantUnit);
+//		System.out.println(peasantUnit2);
+//		peasantUnit.testActions();
+//		peasantUnit2.testActions();
 		
 		
 		/* Bean pool */
-		
-		/*WarriorPool wPool = (WarriorPool) context.getBean("warriorPool");
-		wPool.testActions();*/
-		
+//
+//		WarriorPool wPool = (WarriorPool) context.getBean("warriorPool");
+//		wPool.testActions();
+
 		/* Bean pool restricted using SpEL */
-		
-		//WarriorPool wPool = (WarriorPool) context.getBean("warriorPoolItalian");
-		//wPool.testActions();
-		
+
+//		WarriorPool wPool = (WarriorPool) context.getBean("warriorPoolLevelTwo");
+//		wPool.testActions();
+//		House house = (House) context.getBean("house");
+
+		House poolHouse = (House) context.getBean("warriorPoolHouse");
+		WarriorPool wPool = poolHouse.setUnitCollection();
+		wPool.testActions();
+
 		
 		/* Autowire */
-		
-		Unit rusL3WarriorUnit = (Unit) context.getBean("russian_l3_warrior_unit");
-		rusL3WarriorUnit.show();
-		rusL3WarriorUnit.testActions();
+//
+//		Unit rusL3WarriorUnit = (Unit) context.getBean("russian_l3_warrior_unit");
+//		rusL3WarriorUnit.show();
+//		rusL3WarriorUnit.testActions();
 	}
 
 }
